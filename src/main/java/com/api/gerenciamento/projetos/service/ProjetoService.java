@@ -28,7 +28,7 @@ public class ProjetoService {
 
     public Projeto findById(Long id) {
         return projetoRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Projeto não encontrado com id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Projeto nao encontrado com id: " + id));
     }
 
     public Projeto update(Long id, Projeto updated) {

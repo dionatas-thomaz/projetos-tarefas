@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class ProjetoDTO {
-    @NotBlank(message = "nome do projeto é obrigatório")
+    @NotBlank(message = "nome do projeto e obrigatorio")
     private String nome;
     private String descricao;
 }

@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/projetos")
+@RequestMapping("/projetos")
 public class ProjetoController {
 
     private final ProjetoService projetoService;
@@ -27,7 +27,7 @@ public class ProjetoController {
                 .descricao(dto.getDescricao())
                 .build();
         Projeto saved = projetoService.create(projeto);
-        return ResponseEntity.created(URI.create("/api/projetos/" + saved.getId())).body(saved);
+        return ResponseEntity.created(URI.create("/projetos/" + saved.getId())).body(saved);
     }
 
     @GetMapping

@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/tarefas")
+@RequestMapping("/tarefas")
 public class TarefaController {
 
     private final TarefaService tarefaService;
@@ -28,7 +28,7 @@ public class TarefaController {
                 .dataLimite(dto.getDataLimite())
                 .build();
         Tarefa saved = tarefaService.create(t, dto.getProjetoId());
-        return ResponseEntity.created(URI.create("/api/tarefas/" + saved.getId())).body(saved);
+        return ResponseEntity.created(URI.create("/tarefas/" + saved.getId())).body(saved);
     }
 
     @GetMapping

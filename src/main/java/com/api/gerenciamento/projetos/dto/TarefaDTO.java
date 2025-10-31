@@ -13,13 +13,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class TarefaDTO {
-    @NotBlank(message = "descrição da tarefa é obrigatória")
+    @NotBlank(message = "descrição da tarefa e obrigatoria")
     private String descricao;
-
     private StatusTarefa status;
-
     private LocalDate dataLimite;
 
-    @NotNull(message = "id do projeto é obrigatório")
+    @NotNull(message = "id do projeto e obrigatorio")
     private Long projetoId;
 }

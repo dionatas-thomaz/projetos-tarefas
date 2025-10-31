@@ -1,5 +1,6 @@
 package com.api.gerenciamento.projetos.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -19,7 +20,7 @@ public class Tarefa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "descrição da tarefa é obrigatória")
+    @NotBlank(message = "descriçao da tarefa e obrigatoria")
     private String descricao;
 
     @Enumerated(EnumType.STRING)
@@ -29,5 +30,6 @@ public class Tarefa {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "projeto_id", nullable = false)
+    @JsonBackReference
     private Projeto projeto;
 }

@@ -24,7 +24,7 @@ public class TarefaService {
 
     public Tarefa create(Tarefa tarefa, Long projetoId) {
         Projeto projeto = projetoRepository.findById(projetoId)
-                .orElseThrow(() -> new ResourceNotFoundException("Projeto não encontrado com id: " + projetoId));
+                .orElseThrow(() -> new ResourceNotFoundException("Projeto nao encontrado com id: " + projetoId));
         tarefa.setProjeto(projeto);
         return tarefaRepository.save(tarefa);
     }
@@ -35,7 +35,7 @@ public class TarefaService {
 
     public Tarefa findById(Long id) {
         return tarefaRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Tarefa não encontrada com id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Tarefa nao encontrada com id: " + id));
     }
 
     public Tarefa update(Long id, Tarefa updated, Long projetoId) {
@@ -47,7 +47,7 @@ public class TarefaService {
 
         if (projetoId != null && !projetoId.equals(existing.getProjeto().getId())) {
             Projeto projeto = projetoRepository.findById(projetoId)
-                    .orElseThrow(() -> new ResourceNotFoundException("Projeto não encontrado com id: " + projetoId));
+                    .orElseThrow(() -> new ResourceNotFoundException("Projeto nao encontrado com id: " + projetoId));
             existing.setProjeto(projeto);
         }
 
@@ -60,9 +60,10 @@ public class TarefaService {
     }
 
     public List<Tarefa> findByProjetoId(Long projetoId) {
-        // Verifica se projeto existe
         projetoRepository.findById(projetoId)
                 .orElseThrow(() -> new ResourceNotFoundException("Projeto não encontrado com id: " + projetoId));
         return tarefaRepository.findByProjetoId(projetoId);
     }
+
+
 }

@@ -1,5 +1,6 @@
 package com.api.gerenciamento.projetos.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -21,7 +22,7 @@ public class Projeto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "nome do projeto é obrigatório")
+    @NotBlank(message = "nome do projeto e obrigatorio")
     private String nome;
 
     private String descricao;
@@ -29,6 +30,7 @@ public class Projeto {
     private LocalDate dataCriacao;
 
     @OneToMany(mappedBy = "projeto", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Tarefa> tarefas = new ArrayList<>();
 
     @PrePersist

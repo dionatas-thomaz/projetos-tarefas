@@ -31,7 +31,19 @@ url a ser usada no postman ou navagador : http://localhost:8080
 Endpoints principais
 
 GET /projetos – lista todos os projetos
-
+*****************************************
 POST /projetos – cria um novo projeto
-
+{
+  "nome": "Controle de Estoque",
+  "descricao": "gerenciar produtos e vendas."
+}
+*****************************************
 GET /tarefas – lista todas as tarefas
+*****************************************
+POST /Tare3fas – cria um nova tarefa
+{
+  "descricao": "teste1",
+  "status": "PENDENTE",
+  "dataLimite": "2025-11-05",
+  "projetoId": 1
+}
